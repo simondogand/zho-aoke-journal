@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳客 · 持续关注的站点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f3f4f6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #1f2937;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* hero 区 */
+        .hero {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 3rem 2rem 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.04);
+            border: 1px solid #eaeef2;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #111827;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 640px;
+            margin: 0 auto 1.2rem;
+            color: #4b5563;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #eef2f6;
+            border-radius: 30px;
+            padding: 0.35rem 1.2rem;
+            font-size: 0.85rem;
+            color: #374151;
+            border: 1px solid #d1d9e0;
+            margin-top: 0.25rem;
+        }
+
+        /* 通用卡片 */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2rem 1.8rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.03);
+            border: 1px solid #e6ecf0;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e293b;
+            border-left: 4px solid #9aa9b6;
+            padding-left: 0.9rem;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 1.2rem 0 0.5rem;
+            color: #2d3b4a;
+        }
+
+        .card p, .card li {
+            color: #3f4a5a;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .grid-item {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 1.2rem 1rem;
+            border: 1px solid #e2e8ef;
+        }
+
+        .grid-item strong {
+            display: block;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+
+        /* 列表 */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #edf1f5;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: "→";
+            color: #6f7e8e;
+            font-weight: 300;
+            flex-shrink: 0;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #edf1f5;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            color: #4b5a6d;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 2rem;
+            border: 1px solid #e6ecf0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.8rem 2.5rem;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .footer-links a {
+            color: #2563eb;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .footer-links a:hover {
+            border-bottom-color: #2563eb;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #7d8a99;
+        }
+
+        .inline-link {
+            color: #2563eb;
+            text-decoration: none;
+            border-bottom: 1px solid #bdd0eb;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #2563eb;
+        }
+
+        .btn-soft {
+            display: inline-block;
+            background: #ffffff;
+            border: 1px solid #d4dce4;
+            border-radius: 40px;
+            padding: 0.5rem 1.6rem;
+            font-size: 0.9rem;
+            color: #1f2937;
+            text-decoration: none;
+            transition: background 0.2s, border-color 0.2s;
+            margin-top: 0.4rem;
+        }
+
+        .btn-soft:hover {
+            background: #f0f4f8;
+            border-color: #bccad6;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2e8ef;
+            margin: 1.6rem 0;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.75rem;
+            }
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 1.5rem 1rem;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>再次回到这里 · <span style="font-weight:300;">澳客</span></h1>
+        <p>有些站点值得被收藏、被记住、被反复翻阅。如果你已经来过，或者只是初次路过，这里始终是同一个方向。</p>
+        <div class="badge">· 持续关注的起点 ·</div>
+    </div>
+
+    <!-- 优势区：为什么持续关注 -->
+    <div class="card">
+        <h2>为什么值得再次打开</h2>
+        <div class="grid-2">
+            <div class="grid-item">
+                <strong>内容稳定</strong>
+                没有花哨弹窗，不主动推送。页面结构清晰，信息可以随时查阅，适合长期保存为书签。
+            </div>
+            <div class="grid-item">
+                <strong>结构一致</strong>
+                无论何时回来，布局和分类始终保持相同逻辑。减少重新适应的成本，更像一个安静的参考资料。
+            </div>
+            <div class="grid-item">
+                <strong>低干扰</strong>
+                没有自动播放的媒体，没有强制注册。你只需要一个浏览器就能完整阅读所有内容。
+            </div>
+            <div class="grid-item">
+                <strong>记忆锚点</strong>
+                收藏夹里的站点会慢慢积灰，但每次主动输入或点击书签，都是一次有意识的回访。
+            </div>
+        </div>
+    </div>
+
+    <!-- 说明区：围绕“收藏与回访” -->
+    <div class="card">
+        <h2>收藏与回访</h2>
+        <p>一个网站的价值，有时取决于你愿意回来看它几次。以下是让回访变得更简单的几个方式：</p>
+        <ul class="feature-list">
+            <li>将 <a href="https://zho-aoke.com" class="inline-link">澳客</a> 添加到浏览器书签栏，下次直接从书签打开，无需搜索。</li>
+            <li>如果你习惯用手机浏览，可以添加到主屏幕（iOS Safari / 安卓 Chrome 均支持），图标会像本地应用一样常驻。</li>
+            <li>每隔一段时间回来看看，页面内容可能会补充或调整，但入口始终不变。</li>
+            <li>如果你愿意，也可以把链接分享给朋友，一句“这个站点我一直在看”就够了。</li>
+        </ul>
+        <p style="margin-top:0.8rem; font-size:0.95rem; color:#4b5a6d;">
+            ※ 收藏不只是保存一个网址，更像是给自己留一个“下次还来”的约定。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="card">
+        <h2>常见疑问 · 简短回答</h2>
+        <div class="faq-item">
+            <div class="faq-q">这个网站是做什么的？</div>
+            <div class="faq-a">一个信息型站点，内容围绕特定方向持续整理。你可以把它看作一个安静的参考页。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">需要注册或登录吗？</div>
+            <div class="faq-a">不需要。所有内容对访客完全开放，不设任何形式的账户系统。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">内容会更新吗？</div>
+            <div class="faq-a">会。但更新频率不固定，以实质补充和修订为主，不追求日更。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">我错过了之前的版本怎么办？</div>
+            <div class="faq-a">每次回访看到的就是当前版本。你不需要追赶任何“历史”，随时来都行。</div>
+        </div>
+        <div style="margin-top:1.2rem; text-align:right;">
+            <span class="btn-soft">更多内容 → 直接前往 <a href="https://zho-aoke.com" style="text-decoration:none; color:inherit;">澳客</a></span>
+        </div>
+    </div>
+
+    <!-- 底部链接区 -->
+    <div class="footer-links">
+        <span>🔖 <a href="https://zho-aoke.com">澳客</a></span>
+        <span>📋 <a href="https://zho-aoke.com">澳客</a></span>
+        <span>📌 <a href="https://zho-aoke.com">澳客</a></span>
+        <span>📬 <span style="color:#7d8a99;">(无需订阅)</span></span>
+    </div>
+
+    <div class="footer-note">
+        <span>页面内容定期整理 · 回访入口不变</span><br>
+        <span style="display:inline-block; margin-top:0.3rem;">—— 书签或直接输入 <a href="https://zho-aoke.com" style="color:#7d8a99; border-bottom:1px dotted #bccad6; text-decoration:none;">澳客</a></span>
+    </div>
+
+</div>
+</body>
+</html>
